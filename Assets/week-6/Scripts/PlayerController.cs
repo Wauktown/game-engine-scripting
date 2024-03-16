@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 namespace Week6
 {
@@ -13,8 +14,10 @@ public class PlayerController : MonoBehaviour
         [SerializeField] float jumpForce;
         [SerializeField] float rotationVertical = 5.0f;
         [SerializeField] float rotationHorizontal = 5.0f;
+        
 
-
+        public int health = 100;
+        private HealthUI healthUI;
 
         private float mouseDeltaX = 0f;
         private float mouseDeltaY = 0f;
@@ -74,7 +77,11 @@ public class PlayerController : MonoBehaviour
 
 
         // Start is called before the first frame update
-       
+        private void Start()
+        {
+            healthUI = FindObjectOfType<HealthUI>();
+            UpdateHealthUI();
+        }
 
 
         private void Update()
@@ -93,7 +100,22 @@ public class PlayerController : MonoBehaviour
                 transform.eulerAngles += new Vector3(0, rotationHorizontal * Time.deltaTime * rotDir, 0);
             }
         }
+       
 
+        void UpdateHealthUI()
+        {
+            healthUI.UpdateHealthText(health);
+        }
+
+        public void TakeDamage(int damageAmount)
+        {
+            health -= damageAmount;
+            if (health < 0)
+            {
+                health = 0;
+            }
+            UpdateHealthUI();
+        }
 
         void HandleVerticalRotation()
         {
