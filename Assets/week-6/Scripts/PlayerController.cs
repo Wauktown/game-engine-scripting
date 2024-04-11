@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.Events;
 
 namespace Week6
 {
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
         [SerializeField] float rotationVertical = 5.0f;
         [SerializeField] float rotationHorizontal = 5.0f;
         
+        public Vector3 startingPosition;
 
         public int health = 100;
         private HealthUI healthUI;
@@ -81,6 +83,9 @@ public class PlayerController : MonoBehaviour
         {
             healthUI = FindObjectOfType<HealthUI>();
             UpdateHealthUI();
+            startingPosition = transform.position;
+            GameManager.AddRestartEventListener(RestartPosition);
+
         }
 
 
@@ -101,10 +106,25 @@ public class PlayerController : MonoBehaviour
             }
         }
        
+        private void RestartPosition()
+        {
+            transform.position = startingPosition;
+            health = 100; // Reset health
+            UpdateHealthUI();
 
+
+        }
+        private void OnDestroy()
+        {
+            GameManager.RemoveRestartEventListener(RestartPosition);
+        }
         void UpdateHealthUI()
         {
             healthUI.UpdateHealthText(health);
+            if (health <= 0)
+            {
+                GameManager.instance.GameOver(); // Trigger game over if health reaches zero
+            }
         }
 
         public void TakeDamage(int damageAmount)
