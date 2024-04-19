@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6327eadcb23a62543a28649ae63e20da
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_Arm01: {fileID: 2100000, guid: a3e8ab63863952c418242309aa536bd0, type: 2}
+  - m_Arm02: {fileID: 2100000, guid: e2deec9249f111f4bbb7e0d2c5712460, type: 2}
+  - m_Arm03: {fileID: 2100000, guid: 20ccc67883ae29340b260fea47afada2, type: 2}
+  - m_Leg01: {fileID: 2100000, guid: ac9e849e2b0321d4f9af27d61fc3bc62, type: 2}
+  - m_Leg02: {fileID: 2100000, guid: 65acc5c213e27924c96fa897191e150f, type: 2}
+  - m_Leg03: {fileID: 2100000, guid: 7c84bf4ddd775574380752a748a26d22, type: 2}
+  - m_Head01: {fileID: 2100000, guid: 0ebc47f46674e0f4a81280d0a33e7a90, type: 2}
+  - m_Head02: {fileID: 2100000, guid: 113681dda60670f4aa2cf180a89e3c58, type: 2}
+  - m_Head03: {fileID: 2100000, guid: 59f8517657555544984c00a33fec64d0, type: 2}
+  - m_Body01: {fileID: 2100000, guid: 8704a5bf9bb4b4f46affc2c7107df3cb, type: 2}
+  - m_Body02: {fileID: 2100000, guid: 545ff5cc7aac3a140b22c4537abb76c0, type: 2}
+  - m_Body03: {fileID: 2100000, guid: 630227a9d9037a1469255808d2b365af, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
